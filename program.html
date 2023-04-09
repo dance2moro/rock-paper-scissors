@@ -4,16 +4,21 @@
         // Generate a random number between 0 and 2
         const randomNumber = Math.floor(Math.random() * 3);
 
+        let computerChoice;
+
         // Use a switch statement to return one of three results
         switch (randomNumber) {
         case 0:
         console.log("rock");
+        computerChoice="rock";
         break;
         case 1:
         console.log("paper");
+        computerChoice="paper";
         break;
         case 2:
         console.log("scissors");
+        computerChoice="scissors";
         break;
         }
 
