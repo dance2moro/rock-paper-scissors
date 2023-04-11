@@ -1,27 +1,83 @@
 <script>
+    
+
+
+    
+    let gameResult = game();
+    console.log(gameResult);
+
     function getComputerChoice()
     {
         // Generate a random number between 0 and 2
         const randomNumber = Math.floor(Math.random() * 3);
 
-        let computerChoice;
+       
 
         // Use a switch statement to return one of three results
         switch (randomNumber) {
         case 0:
-        console.log("rock");
-        computerChoice="rock";
-        break;
+        return "rock";
+    
+       
         case 1:
-        console.log("paper");
-        computerChoice="paper";
-        break;
+        return "paper";
+        
+        
         case 2:
-        console.log("scissors");
-        computerChoice="scissors";
-        break;
+        return "scissors";
+        
+        
         }
 
 
     }
+
+    function playRound(userChoice,computerChoice)
+    {
+        if (userChoice === computerChoice)
+        {
+            return "It's a tie";
+        }
+
+        else
+        {
+           
+        switch (userChoice + computerChoice) 
+        {
+                case "rockscissors":
+                case "paperrock":
+                case "scissorspaper":
+                    return "You win!";
+                case "rockpaper":
+                case "paperscissors":
+                case "scissorsrock":
+                    return "You lose...";
+                default:
+                    return "Invalid choice";
+        }
+
+        }
+            
+        }
+    function game()
+    {
+        let score = 0;
+
+        for (let i =0; i <6; i++)
+        {
+            let computerChoice=getComputerChoice();
+            let userChoice = prompt("Input 'rock' 'paper' or 'scissors'");
+            if (playRound(userChoice,computerChoice) =="You win!")
+            {score++;}
+            console.log(playRound(userChoice,computerChoice)+" current score: "+score);
+
+            
+        }
+
+        return score;
+    }
+       
+    
+
 </script>
+
